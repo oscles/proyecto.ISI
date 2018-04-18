@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Arduino NodeJS</title>
+</head>
+<body>
+
+
+    <div class='foco' id='foco1'></div> <!--Cuando estén encendidos que aprezcan encendido-->
+    <button onclick='toggle(2)'>Apagar</button> <!--Cambia los textos man-->
+    <div class='foco' id='foco2'></div>
+    <button onclick='toggle(3)'>Apagar</button>
+    <div class='foco' id='foco3'></div>
+    <button onclick='toggle(4)'>Apagar</button>
+    <div class='foco' id='foco4'></div>
+    <button onclick='toggle(5)'>Apagar</button>
+    
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+
+        socket.on('status', (msg) => {
+            console.log(msg);
+        });
+
+        function toggle(n){
+            socket.emit('toggle', n); //Envía Por Socket Apagar/Prender un Led
+        }
+
+        setInterval(()=>{ //Pide Actualización cada .5 seg
+            socket.emit('status');
+        }, 500);
+    </script>
+</body>
+</html>

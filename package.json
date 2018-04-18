@@ -1,0 +1,25 @@
+{
+  "name": "proyecto.isi",
+  "version": "1.0.0",
+  "description": "Proyecto automatización ISI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CristianJDelRio/proyecto.ISI.git"
+  },
+  "author": "Cristian Del Rio Martinez - CristianJDelRio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CristianJDelRio/proyecto.ISI/issues"
+  },
+  "homepage": "https://github.com/CristianJDelRio/proyecto.ISI#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "johnny-five": "^0.14.3",
+    "mongoose": "^5.0.15",
+    "socket.io": "^2.1.0"
+  }
+}
