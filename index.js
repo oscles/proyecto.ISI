@@ -27,15 +27,15 @@ var leds = [ //Para no usar la base de datos aún
 
 ]
 
-for(var i=0; i<3; i++)
+for(var i=0; i<3; i++) //usar ForEach
     leds[i].status = false;
 
 
-app.use(express.static(__dirname));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname)); //crear una variable
+app.use(express.static(path.join(__dirname, 'public'))); //redundante
 
 app.get('/', function(req, res){
-    res.sendFile(path.join(__dirname+'/public/index.html'));
+    res.sendFile(path.join(__dirname+'/public/index.html')); //mala practica
 });
 
 io.on('connection', function(socket){
