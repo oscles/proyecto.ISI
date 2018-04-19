@@ -27,15 +27,15 @@ var leds = [ //Para no usar la base de datos aún
 
 ]
 
-for(var i=0; i<3; i++)
+for(var i=0; i<3; i++) //Usar ForEach
     leds[i].status = false;
 
 
-app.use(express.static(__dirname));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname)); //Redundante
+app.use(express.static(path.join(__dirname, 'public'))); //duplicidad
 
 app.get('/', function(req, res){
-    res.sendFile(path.join(__dirname+'/public/index.html'));
+    res.sendFile(path.join(__dirname+'/public/index.html'));//HardCode
 });
 
 io.on('connection', function(socket){
@@ -54,7 +54,7 @@ board.on("ready", function(){
 });
 
 function toggleLed(n){
-    let led = new five.Led(n);
+    let led = new five.Led(n); //optmizar esta funcion
     if(leds[n-2].status) 
         led.off();
     else led.on();
